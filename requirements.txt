@@ -1,0 +1,11 @@
+dlt[duckdb]
+dlt[filesystem]
+duckdb
+boto3
+pandas
+pyarrow
+clickhouse-connect
+google-cloud-bigquery
+google-cloud-storage
+python-dotenv
+pytest

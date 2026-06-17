@@ -1,0 +1,6 @@
+[pipeline]
+pipeline_name = "pharma_prescriber_pipeline"
+dataset_name = "pharma_prescriber"
+
+[destination.duckdb]
+credentials = "pharma_prescriber_pipeline.duckdb"

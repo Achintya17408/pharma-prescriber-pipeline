@@ -1,0 +1,29 @@
+name: pharma-prescriber-etl
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 3 * * 1'
+
+jobs:
+  run-etl:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -r requirements.txt
+      - name: Configure dlt secrets
+        run: |
+          mkdir -p .dlt
+          cp .dlt/secrets.toml.example .dlt/secrets.toml
+      - name: Run ingestion
+        env:
+          DLT_DESTINATION: ${{ secrets.DLT_DESTINATION || 'duckdb' }}
+          CLICKHOUSE_HOST: ${{ secrets.CLICKHOUSE_HOST }}
+          CLICKHOUSE_PASSWORD: ${{ secrets.CLICKHOUSE_PASSWORD }}
+          GCP_PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
+          GCP_CLIENT_EMAIL: ${{ secrets.GCP_CLIENT_EMAIL }}
+          GCP_PRIVATE_KEY: ${{ secrets.GCP_PRIVATE_KEY }}
+        run: python pipelines/ingest_partd.py
