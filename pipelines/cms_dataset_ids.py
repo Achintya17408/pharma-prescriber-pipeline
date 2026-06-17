@@ -1,13 +1,11 @@
-"""CMS Medicare Part D Prescribers by Provider and Drug dataset UUIDs.
+# CMS Medicare Part D - Prescribers by Provider and Drug
+# UUIDs from data.cms.gov/data.gov API metadata.
 
-Replace these placeholders with UUIDs from data.cms.gov API tabs before live ingestion.
-The pipeline validates that placeholders are not used for a real API run.
-"""
-
-CMS_DATASET_IDS = {
-    2018: "PASTE_2018_UUID_HERE",
-    2019: "PASTE_2019_UUID_HERE",
-    2020: "PASTE_2020_UUID_HERE",
-    2021: "PASTE_2021_UUID_HERE",
-    2022: "PASTE_2022_UUID_HERE",
+YEAR_DATASET_IDS = {
+    2020: "7795fe20-e80e-435a-a9ed-d2d65e05feeb",
+    2021: "f68114ed-f854-4ffc-9c6e-ed78b5e2f8d0",
+    2022: "b101b457-ffa4-49bb-8fd9-27c1266086e2",
+    2023: "e54db557-cd82-4e91-a0fe-61aad5865d69",
 }
+
+CMS_DATASET_IDS = YEAR_DATASET_IDS

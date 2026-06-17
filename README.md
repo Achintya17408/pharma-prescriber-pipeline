@@ -14,10 +14,11 @@ A CMS Medicare Part D ETL and analytics project using dlt, DuckDB, ClickHouse/Bi
 ```bash
 pip install -r requirements.txt
 cp .env.example .env
+~/.local/bin/maxio --data-dir ./maxio-data --port 7410 --access-key maxio --secret-key maxio123
 python setup_maxio.py
 python pipelines/ingest_partd.py
 python pipelines/run_models.py
 make export-tableau
 ```
 
-Before live ingestion, replace placeholder CMS UUIDs in `pipelines/cms_dataset_ids.py`.
+CMS UUIDs for 2020-2023 are configured in `pipelines/cms_dataset_ids.py`.
